@@ -1,0 +1,62 @@
+
+
+.tail {
+    position: absolute;
+    bottom: 325px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    background: linear-gradient(45deg, #a66352 25%, #6e4e33 25%, #6e4e33 50%, #a67c52 50%, #a67c52 75%, #6e4e33 75%, #6e4e33 100%);
+    background-size: 10px 10px;
+    border-radius: 5px;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    height: var(--tail-length);
+    transition: height 1s linear;
+}
+
+
+.spark {
+    width: 20px;  /* Увеличиваем ширину для вытянутого эффекта */
+    height: 30px; /* Увеличиваем высоту для вытянутого эффекта */
+    background-color: #ffb74d;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; /* Эффект вытягивания, имитирующий огонь */
+    position: absolute;
+    top: -10px; 
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 10px #ffb74d, 0 0 20px #ff6f00, 0 0 30px #ff6f00;
+    transition: transform 1s linear, box-shadow 0.5s ease-in-out;
+    animation: glow 1.5s infinite alternate, bobbing 2s infinite linear;
+}
+
+/* Анимация сияния */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 10px #ffb74d, 0 0 20px #ff6f00, 0 0 30px #ff6f00;
+        filter: brightness(100%);
+    }
+    100% {
+        box-shadow: 0 0 20px #ffb74d, 0 0 30px #ff6f00, 0 0 40px #ff4500;
+        filter: brightness(120%);
+    }
+}
+
+/* Анимация покачивания */
+@keyframes bobbing {
+    0% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-3px);
+    }
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+
+
+
+
