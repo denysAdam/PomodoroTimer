@@ -1,6 +1,6 @@
 
 import './App.css'
- import PomodoroTimer from './components/Pomodoro'
+import PomodoroTimer from './components/Pomodoro'
 
 
 function App() {

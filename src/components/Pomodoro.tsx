@@ -55,7 +55,9 @@ export default function PomodoroTimer() {
     };
 
     const addMinute = () => {
+        if (timeLeft < 1441) {
         setTimeLeft((prevTime) => prevTime + 60);
+        }
     };
     
     const subtractMinute = () => {
@@ -75,12 +77,12 @@ export default function PomodoroTimer() {
                 alignItems: 'center', 
                 justifyContent: 'center', 
                 height: '100vh', 
-                backgroundColor: '#ffffff', 
+                backgroundColor: '#EDEFF2', 
                 color: '#333333',
                 "--tail-length": tailLength 
             }}
         >
-            <Typography variant="h2" sx={{ marginBottom: 14, color: '#333333' }}>
+            <Typography variant="h2" sx={{ marginBottom: 16, color: '#333333' }}>
                 {isBreak ? "Reloading Bomb" : "Pomodoro Timer"}
             </Typography>
 
@@ -107,7 +109,7 @@ export default function PomodoroTimer() {
                         top: '-40px', 
                         width: 100, 
                         height: 50, 
-                        backgroundColor: '#000000', 
+                        backgroundColor: '#2F333E', 
                         borderRadius: '10px', 
                         zIndex: 2 
                     }}
@@ -131,7 +133,7 @@ export default function PomodoroTimer() {
                         value={(timeLeft / totalTime) * 100}
                         size={300}
                         thickness={10}
-                        sx={{ color: '#ee3a0d'  }}  // Color of the progress bar
+                        sx={{ color: '#C04D4F'  }}  // Color of the progress bar
                     />
                 </Box>
 
@@ -140,7 +142,7 @@ export default function PomodoroTimer() {
                     sx={{ 
                         position: 'relative', 
                         zIndex: 1, 
-                        backgroundColor: '#000000', 
+                        backgroundColor: '#2F333E', 
                         width: 290, 
                         height: 290, 
                         borderRadius: '50%', 
@@ -150,14 +152,14 @@ export default function PomodoroTimer() {
                         justifyContent: 'center' 
                     }}
                 >
-                    <Typography variant="h4" sx={{ color: '#ffffff' }}>
+                    <Typography sx={{ color: '#ffffff' , fontSize: 70}}>
                         {formatTime(timeLeft)}
                     </Typography>
-                    <Box className="buttonContainer" sx={{ display: 'flex', gap: 1, marginTop: 2 }}>
+                    <Box className="buttonContainer" sx={{ display: 'flex', gap: 1}}>
                         <IconButton
                             onClick={addMinute}
                             disabled={isRunning}
-                            color="primary"
+                            sx={{ backgroundColor: '#4D93BF', color: '#FFFFFF', scale: .9}} 
                             size="large"
                         >
                             <AddIcon />
@@ -165,10 +167,10 @@ export default function PomodoroTimer() {
                         <IconButton
                             onClick={subtractMinute}
                             disabled={isRunning}
-                            color="secondary"
+                            sx={{ backgroundColor: '#4D93BF', color: '#FFFFFF', scale: .9 }} 
                             size="large"
                         >
-                            <RemoveIcon sx={{ transform: 'rotate(180deg)' }}/>
+                            <RemoveIcon sx={{ transform: 'rotate(180deg)' }} />
                         </IconButton>
                     </Box>
                 </Box>
@@ -177,18 +179,33 @@ export default function PomodoroTimer() {
             <Box sx={{ marginTop: 4 }}>
                 <Button
                     variant="contained"
-                    color={isRunning ? "secondary" : "primary"}
+                    
                     onClick={handleStartStop}
                     startIcon={isRunning ? <PauseIcon /> : <PlayArrowIcon sx={{ transform: 'rotate(360deg)' }} />}
-                    sx={{ marginRight: 2 }}
+                    sx={{ marginRight: 2 
+                        , backgroundColor: isRunning ? '#B84DBF' : '#8EBF4D',
+                        outline: 'none',
+                        color: '#FFFFFF', '&:hover': {
+                            backgroundColor: isRunning ? '#A344A9' : '#76A43C',
+                            
+                        }
+                        }}
                 >
                     {isRunning ? "Stop" : "Start"}
                 </Button>
                 <Button
                     variant="contained"
-                    color="warning"
+                    
                     onClick={handleReset}
                     startIcon={<ReplayIcon />}
+                    sx={{
+                        backgroundColor: "#D79C3E",
+                        outline: 'none',
+                        color: '#FFFFFF', 
+                        '&:hover': {
+                            backgroundColor: '#C28531' 
+                        }
+                    }}
                 >
                     Reset
                 </Button>
