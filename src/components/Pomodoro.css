@@ -1,4 +1,11 @@
-
+@font-face {
+    font-family: 'Baloo Bhai 2';
+    font-style: normal;
+    font-weight: 400 800;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/baloobhai2/v28/sZlDdRSL-z1VEWZ4YNA7Y5IHbd7nuH0.woff2) format('woff2');
+    unicode-range: U+0951-0952, U+0964-0965, U+0A80-0AFF, U+200C-200D, U+20B9, U+25CC, U+A830-A839;
+}
 
 .tail {
     position: absolute;
@@ -18,10 +25,10 @@
 
 
 .spark {
-    width: 20px;  /* Увеличиваем ширину для вытянутого эффекта */
-    height: 30px; /* Увеличиваем высоту для вытянутого эффекта */
+    width: 20px;  
+    height: 30px; 
     background-color: #ffb74d;
-    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; /* Эффект вытягивания, имитирующий огонь */
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; 
     position: absolute;
     top: -10px; 
     left: 50%;
@@ -31,7 +38,7 @@
     animation: glow 1.5s infinite alternate, bobbing 2s infinite linear;
 }
 
-/* Анимация сияния */
+
 @keyframes glow {
     0% {
         box-shadow: 0 0 10px #ffb74d, 0 0 20px #ff6f00, 0 0 30px #ff6f00;
@@ -43,7 +50,7 @@
     }
 }
 
-/* Анимация покачивания */
+
 @keyframes bobbing {
     0% {
         transform: translateX(-50%) translateY(0);

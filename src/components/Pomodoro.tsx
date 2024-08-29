@@ -5,7 +5,7 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import PauseIcon from '@mui/icons-material/Pause';
 import ReplayIcon from '@mui/icons-material/Replay';
-import './Pomodoro.css';  // Подключаем CSS для кастомных стилей, если нужно
+import './Pomodoro.css';  
 
 const formatTime = (time: number): string => {
     const minutes = Math.floor(time / 60);
@@ -69,6 +69,7 @@ export default function PomodoroTimer() {
     const tailLength = `${(timeLeft / totalTime) * 90}px`;
 
     return (
+        
         <Box 
             className="container" 
             sx={{ 
@@ -82,7 +83,16 @@ export default function PomodoroTimer() {
                 "--tail-length": tailLength 
             }}
         >
-            <Typography variant="h2" sx={{ marginBottom: 16, color: '#333333' }}>
+            
+            <Typography
+                variant="h2"
+                sx={{
+                    marginBottom: 16,
+                    color: '#333333',
+                    fontFamily: '"Ballo Bhai 2"',
+                    fontWeight: 700
+                }}
+                >
                 {isBreak ? "Reloading Bomb" : "Pomodoro Timer"}
             </Typography>
 
