@@ -87,9 +87,9 @@ export default function PomodoroTimer() {
             <Typography
                 variant="h2"
                 sx={{
-                    marginBottom: 16,
+                    marginBottom: 18,
                     color: '#333333',
-                    fontFamily: '"Ballo Bhai 2"',
+                    fontFamily: '"Comfortaa"',
                     fontWeight: 700
                 }}
                 >
